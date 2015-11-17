@@ -32,9 +32,6 @@ public class SectorsOfMatrix {
 	private int currentDepth;
 	private static int ctr = -1;
 	private int noOfArrays;
-	private int currentArrWidth;
-	private int currentArrHeight;
-	private static boolean[][] boolArr;
 	private static int[][] intArr;
 
 	private class Matrix {
@@ -117,6 +114,9 @@ public class SectorsOfMatrix {
 	public List<Matrix> readFile(String fileLocation) {
 		BufferedReader br = null;
 		List<Matrix> matrixList = new ArrayList<Matrix>();
+		int currentArrWidth = 0;
+		int currentArrHeight = 0;
+		
 		try {
 			br = new BufferedReader(new FileReader(new File(fileLocation)));
 			List<String> matrixAsStrList = new ArrayList<String>();
@@ -193,17 +193,17 @@ public class SectorsOfMatrix {
 		List<String> outList = new ArrayList<String>();
 		for (Matrix m : matrixList) {
 			intArr = m.getMatrix();
-			currentArrHeight = m.getCurrentArrHeight();
-			currentArrWidth = m.getCurrentArrWidth();
-			boolArr = new boolean[currentArrHeight][currentArrWidth];
+			int currentArrHeight = m.getCurrentArrHeight();
+			int currentArrWidth = m.getCurrentArrWidth();
+			boolean[][] visitedBoolArr = new boolean[currentArrHeight][currentArrWidth];
 
 			int depth, maxDepth = 0;
 			if (intArr != null) {
 				for (int i = 0; i < currentArrHeight; i++) {
 					for (int j = 0; j < currentArrWidth; j++) {
-						if (intArr[i][j] == 1 && boolArr[i][j] == false) {
+						if (intArr[i][j] == 1 && visitedBoolArr[i][j] == false) {
 							currentDepth = 0;
-							depth = findMaxDepth(intArr, boolArr, i, j);
+							depth = findMaxDepth(intArr, visitedBoolArr, i, j);
 							if (depth > maxDepth) {
 								maxDepth = depth;
 							}

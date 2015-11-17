@@ -21,9 +21,9 @@ public class QuickSort {
 	 * @return the partition index where elements to its left are less than it and 
 	 * elements to its right are more than it 
 	 */
-	public int partition(int[] a, int left, int right) {
+	public int partition(double[] a, int left, int right) {
 		// Get the pivot element
-		int pivot = a[left];
+		double pivot = a[left];
 
 		// Break when left is > right
 		while(left <= right) {
@@ -36,7 +36,7 @@ public class QuickSort {
 
 			// swap the values which are left by lower and upper bounds 
 			if(left <= right) {
-				int tmp = a[left];
+				double tmp = a[left];
 				a[left] = a[right];
 				a[right] = tmp;
 
@@ -55,7 +55,7 @@ public class QuickSort {
 	 * @param i start index of the array
 	 * @param j end index of the array
 	 */
-	public int[] recursiveQuickSort(int[] a, int i, int j) {
+	public double[] recursiveQuickSort(double[] a, int i, int j) {
 		// Handle logic to divide the array
 		int idx = partition(a, i, j);
 
@@ -78,9 +78,9 @@ public class QuickSort {
 	 */
 	public static void main(String[] args) {
 		QuickSort qs = new QuickSort();
-		int[] arr = {14,12,16,13,11,15};
+		double[] arr = {-0.45,	-1.21,	0.45,	1.36,	-0.76,	0.76,	1.82,	-1.36,	0.45,	-0.15,	-0.91};
 
-		int[] result = qs.recursiveQuickSort(arr, 0, 5);
+		double[] result = qs.recursiveQuickSort(arr, 0, arr.length-1);
 		System.out.println("Final sorted array: "+Arrays.toString(result));
 	}
 }
