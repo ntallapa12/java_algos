@@ -250,7 +250,7 @@ public class SectorsOfMatrix {
 
 		if (args == null || args.length != 1) {
 			// default
-			fileLocation = "C:/AMEX/ML Workspace/java_algos/src/main/resources/input.txt";
+			fileLocation = "C:/ML Workspace/java_algos/src/main/resources/input.txt";
 		} else {
 			fileLocation = args[0];
 			// validate
@@ -258,7 +258,7 @@ public class SectorsOfMatrix {
 				File f = new File(args[0]);
 				if (!f.exists()) {
 					// default
-					fileLocation = "C:/AMEX/ML Workspace/java_algos/src/main/resources/input.txt";
+					fileLocation = "C:/ML Workspace/java_algos/src/main/resources/input.txt";
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
