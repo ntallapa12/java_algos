@@ -39,13 +39,13 @@ public class FindDuplicates {
 	
 	public void findDuplicates(Integer currentElement) {
 		int idx = getSupplementalHash(currentElement.hashCode()) % size;
-		//int idx = (element.hashCode()) % size;
+		//int idx = (currentElement.hashCode()) % size;
 		MyInt existingElement = hashArray[idx];
 
 		for(;existingElement != null; existingElement = existingElement.next) {
 			if(existingElement.value == currentElement) {
 				// duplicate
-				System.out.println(currentElement+" this is a duplicate");
+				System.out.println(currentElement+" is a duplicate");
 				return;
 			} else {
 				System.out.println("identified collision, adding "+existingElement.value+" to the list");
@@ -76,31 +76,4 @@ public class FindDuplicates {
 			fd.findDuplicates(testArr[i]);
 		}
 	}
-
 }
-
-
-
-//if(currentElement.value == element) {
-//	// duplicate
-//	System.out.println(element+" this is a duplicate");
-//} else {
-//	// this is a collision, add to the list
-//	boolean isDupFound = false;
-//	MyInt previousElement = null;
-//	while(currentElement.next != null) {
-//		if(currentElement.value == element) {
-//			// duplicate
-//			isDupFound = true;
-//			System.out.println(element+" this is a duplicate");
-//			break;
-//		} else {
-//			System.out.println("add to the list bcos of collision");
-//			previousElement = currentElement;
-//			currentElement = currentElement.next;
-//		}
-//	}
-//	if(!isDupFound) {
-//		previousElement.next = new MyInt(element);
-//	}
-//}
